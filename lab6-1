@@ -1,0 +1,36 @@
+#В хоккейной команде 18 человек,в ней 2 вратаря, 7 нападающих и 9 защитников. 
+#Вывести все возможные варианты основных составов команды на игру, если в нем 1 вратарь, 4 нападающих и 6 защитников
+
+goalies = 2
+forwards = 7
+defensemen = 9
+
+num_positions = {'goalies': 1, 'forwards': 4, 'defensemen': 6}
+team = [None] * sum(num_positions.values())
+
+num_combinations = 0
+
+# Внешний цикл - перебираем вратарей
+for goalie in range(goalies):
+  team[0] = goalie
+
+  # Цикл для выбора форвардов
+  for fwd_1 in range(goalies, goalies + forwards - 3):
+    for fwd_2 in range(fwd_1 + 1, goalies + forwards - 2):
+      for fwd_3 in range(fwd_2 + 1, goalies + forwards - 1):
+        for fwd_4 in range(fwd_3 + 1, goalies + forwards):
+          team[1:5] = [fwd_1, fwd_2, fwd_3, fwd_4]
+
+          # Цикл для выбора защитников
+          for d_1 in range(goalies + forwards, goalies + forwards + defensemen - 5):
+            for d_2 in range(d_1 + 1, goalies + forwards + defensemen - 4):
+              for d_3 in range(d_2 + 1, goalies + forwards + defensemen - 3):
+                for d_4 in range(d_3 + 1, goalies + forwards + defensemen - 2):
+                  for d_5 in range(d_4 + 1, goalies + forwards + defensemen - 1):
+                    for d_6 in range(d_5 + 1, goalies + forwards + defensemen):
+                      team[5:] = [d_1, d_2, d_3, d_4, d_5, d_6]
+
+                      print(team)
+                      num_combinations += 1
+
+print("Total combinations:", num_combinations)
