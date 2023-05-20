@@ -23,9 +23,9 @@ for goalie in range(goalies):
                     for d_5 in range(d_4 + 1, goalies + forwards + defensemen - 1):
                         for d_6 in range(d_5 + 1, goalies + forwards + defensemen):
                             team[5:] = [d_1, d_2, d_3, d_4, d_5, d_6]
-
+                            p=goalie+3+5+7+8+d_1+ d_2+ d_3+ d_4+ d_5+d_6
                             print(team)
                             num_combinations += 1
-
+print('номер игрока=его рейтинг, макимальный рейтинг-',p)
 print('0-1: номера вратаря, 2-8: номера нападающих, 9-18: номера защитников')
-print("Total combinations:", num_combinations)
+print("Количество вариантов составов:", num_combinations)
