@@ -62,8 +62,8 @@ if det_A > diag_F:
     mod_A = np.dot(A, trans_A)
     print('Умножение A-1 * AT\n', mod_A)
 
-    power_F = np.linalg.matrix_power(A, -1)
-    print('Возведение матрицы A в -1 степень:\n', power_F)
+    power_F = np.linalg.matrix_power(F, -1)
+    print('Возведение матрицы F в -1 степень:\n', power_F)
 
     mod_power_F = np.dot(k, power_F)
     print('Умножение K *F-1\n', mod_power_F)
